@@ -6,9 +6,10 @@ import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion
 import { GRAIN } from '@/lib/constants/textures';
 
 /*
- * Beat 3.5 — the cinematic interlude. The emotional peak of the page.
+ * The cinematic interlude — the emotional peak of the page, placed after
+ * desire is built (spaces, estate, self-insertion) and before the proof run.
  *
- * After three warm, bright beats the page hard-cuts to night: the illuminated
+ * After four warm, bright beats the page hard-cuts to night: the illuminated
  * Raj Mahal at full viewport, a couple dwarfed by it. Almost no copy — the
  * image does the talking. The frame drifts on scroll (slow crane move) so it
  * feels filmed, not placed.

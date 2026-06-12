@@ -17,33 +17,32 @@ export const metadata: Metadata = {
 };
 
 /*
- * Homepage arc (V2 — media-ready preparation phase):
+ * Homepage arc (V3 — narrative flow):
  *
- *   hero          → emotional arrival
- *   intro         → estate context       [V1 style — to be updated when media arrives]
- *   choose-story  → self-insertion        [NEW skeleton]
- *   categories    → shoot types           [V1 style — to be updated]
- *   spaces        → the backdrops         [V1 style — to be updated]
- *   interlude     → the emotional peak: full-bleed night palace, near-silent
- *   editorial     → why villa             [V1 style — to be updated]
- *   stories       → social proof          [NEW skeleton]
- *   gallery       → visual proof          [V1 style — to be updated]
- *   cta           → concierge close       [V1 style — to be updated]
+ *   hero          → "This looks beautiful."
+ *   spaces        → "This place feels unreal."        (the product leads)
+ *   intro         → "And it's 20 minutes from Delhi." (context after the reveal)
+ *   choose-story  → "We could look like this."        (self-insertion once desire exists)
+ *   interlude     → "Holy sh*t."                      (the peak, now earned)
+ *   editorial     → authority — brands shoot here
+ *   stories       → human proof — people shoot here
+ *   categories    → "What exactly could we create?"   (rational support, late)
+ *   gallery       → final visual payoff
+ *   cta           → "We should visit."
  *
- * V1 sections will be individually upgraded to the V2.5 visual language
- * once real media arrives.
+ * Sequence is intentional: emotion before information, proof before decision.
  */
 export default function HomePage() {
   return (
     <>
       <HeroSection />
+      <SpacesPreview />
       <IntroStatement />
       <ChooseYourStory />
-      <ShootCategories />
-      <SpacesPreview />
       <CinematicInterlude />
       <EditorialStory />
       <StoriesFromVilla />
+      <ShootCategories />
       <GalleryMoments />
       <ConciergeCTA />
     </>

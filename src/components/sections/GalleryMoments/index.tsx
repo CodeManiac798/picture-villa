@@ -4,8 +4,8 @@ import { Reveal } from '@/components/ui/Reveal';
 import { SITE } from '@/lib/constants/site';
 
 /*
- * Beat 5 — gallery moments. Real film stills, not a grid.
- * The wide plate rides up over the story section's cinematic close.
+ * Gallery moments — the final visual payoff before the concierge close.
+ * Real film stills, not a grid.
  */
 
 interface PlateProps {
@@ -43,8 +43,8 @@ export function GalleryMoments() {
   return (
     <section className="bg-[--color-ivory] pb-20 sm:pb-24 lg:pb-28">
 
-      {/* Hero plate — near full-bleed, overlapping the story section above */}
-      <div className="relative z-10 -mt-24 sm:-mt-32 lg:-mt-40 px-3 sm:px-6">
+      {/* Hero plate — near full-bleed */}
+      <div className="relative z-10 px-3 sm:px-6">
         <Reveal y={40}>
           <Plate
             className="h-[52vh] sm:h-[64vh]"

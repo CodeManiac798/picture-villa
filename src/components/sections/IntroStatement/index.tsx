@@ -3,17 +3,18 @@ import { Container } from '@/components/layout/Container';
 import { Reveal } from '@/components/ui/Reveal';
 
 /*
- * Beat 2 — the estate, felt emotionally. Warm champagne, a real plate that
- * rides up over the hero. Self-insertion, not a venue brochure.
+ * Estate context — lands after the spaces reveal, answering "and this is
+ * 20 minutes from Delhi." Mobile reads image → headline → stats; the body
+ * copy is desktop dwell-time material and hidden on phones.
  */
 export function IntroStatement() {
   return (
     <section className="relative bg-[--color-cream]">
-      <Container className="relative z-10 py-20 sm:py-24 lg:py-28">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+      <Container className="relative z-10 py-16 sm:py-24 lg:py-28">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
 
           {/* Statement */}
-          <div className="lg:col-span-6 lg:pr-8">
+          <div className="order-2 lg:order-none lg:col-span-6 lg:col-start-1 lg:row-start-1 lg:pr-8">
             <Reveal>
               <p className="text-eyebrow text-[--color-gold]">The Estate</p>
             </Reveal>
@@ -23,7 +24,7 @@ export function IntroStatement() {
                 <span className="accent-serif text-[--color-gold]">the world changes.</span>
               </h2>
             </Reveal>
-            <Reveal delay={0.2}>
+            <Reveal delay={0.2} className="hidden sm:block">
               <p className="mt-6 max-w-[46ch] text-body-lg text-[--color-mist] leading-relaxed">
                 Palace courts, flower tunnels, Mediterranean terraces — eighteen
                 built worlds across three private acres, each made for one thing:
@@ -31,7 +32,7 @@ export function IntroStatement() {
               </p>
             </Reveal>
             <Reveal delay={0.3}>
-              <div className="mt-8 flex items-center gap-8">
+              <div className="mt-7 sm:mt-8 flex items-center gap-8">
                 <div>
                   <p className="font-display text-3xl text-[--color-ink]">18</p>
                   <p className="mt-1 text-[0.6rem] tracking-[0.2em] uppercase text-[--color-mist]">Worlds</p>
@@ -50,8 +51,8 @@ export function IntroStatement() {
             </Reveal>
           </div>
 
-          {/* Floating plate — rides up over the hero photograph */}
-          <div className="lg:col-span-5 lg:col-start-8 relative z-20 lg:-mt-44">
+          {/* Photograph — leads on mobile, sits beside the statement on desktop */}
+          <div className="order-1 lg:order-none lg:col-span-5 lg:col-start-8 lg:row-start-1 relative">
             <Reveal y={44}>
               <figure className="group">
                 <div className="relative aspect-[3/4] overflow-hidden rounded-[var(--radius-card)] bg-[--color-beige] shadow-[0_30px_70px_-28px_rgba(40,24,16,0.5)]">

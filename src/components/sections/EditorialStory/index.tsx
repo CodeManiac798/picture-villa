@@ -11,7 +11,7 @@ import { GRAIN } from '@/lib/constants/textures';
  * dark surface — no overlap, no contrast competition.
  *
  * Desktop: full-bleed cinematic photograph with warm graded overlay,
- * film-poster treatment. Extra bottom padding receives the plate overlap.
+ * film-poster treatment.
  */
 
 const STATS = [
@@ -68,7 +68,7 @@ export function EditorialStory() {
       </div>
 
       {/* Text — on mobile: solid ink surface; desktop: over the overlay */}
-      <Container className="relative z-10 pt-10 sm:pt-28 lg:pt-32 pb-14 sm:pb-52 lg:pb-60">
+      <Container className="relative z-10 pt-10 sm:pt-28 lg:pt-32 pb-14 sm:pb-28 lg:pb-32">
 
         <Reveal>
           <p className="text-eyebrow text-[--color-gold-light]">Why The Picture Villa</p>

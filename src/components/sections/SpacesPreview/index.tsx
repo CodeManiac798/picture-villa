@@ -5,7 +5,8 @@ import { Container } from '@/components/layout/Container';
 import { Reveal } from '@/components/ui/Reveal';
 
 /*
- * Beat 3 — signature spaces. The bright reveal after two dark beats.
+ * Signature spaces — the first beat after the hero. The spaces are the
+ * product; the user must see the worlds before anything is explained.
  * Asymmetric editorial composition: four large plates, no uniform grid.
  */
 
