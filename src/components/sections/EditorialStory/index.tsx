@@ -5,15 +5,19 @@ import { SITE } from '@/lib/constants/site';
 import { GRAIN } from '@/lib/constants/textures';
 
 /*
- * Beat 4 — why the villa. No longer a flat dark gradient: a cinematic
- * full-bleed photograph with a warm graded overlay — a film-poster beat.
- * Extra bottom padding receives the gallery plate overlap.
+ * Beat 4 — why the villa.
+ *
+ * Mobile: image shown as a block above the text. Text reads on a clean
+ * dark surface — no overlap, no contrast competition.
+ *
+ * Desktop: full-bleed cinematic photograph with warm graded overlay,
+ * film-poster treatment. Extra bottom padding receives the plate overlap.
  */
 
 const STATS = [
   { value: String(SITE.stats.spaces),               label: 'Built worlds' },
   { value: `0${SITE.stats.acres}`,                  label: 'Private acres' },
-  { value: `’${String(SITE.established).slice(2)}`, label: 'On this ground since' },
+  { value: `'${String(SITE.established).slice(2)}`, label: 'On this ground since' },
 ] as const;
 
 const CLIENTS = ['Nykaa', 'Spotify India', 'Paytm', "Pond's", 'Nestlé'] as const;
@@ -21,8 +25,9 @@ const CLIENTS = ['Nykaa', 'Spotify India', 'Paytm', "Pond's", 'Nestlé'] as cons
 export function EditorialStory() {
   return (
     <section className="relative overflow-hidden bg-[--color-ink]">
-      {/* Full-bleed cinematic photograph — breathing, never frozen */}
-      <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
+
+      {/* Mobile: image as a block above text — no overlap, guaranteed readability */}
+      <div className="relative h-[46vh] overflow-hidden sm:hidden" aria-hidden="true">
         <div className="animate-kenburns absolute -inset-[5%]">
           <Image
             src="/images/fashion/fashion7.jpg"
@@ -32,7 +37,22 @@ export function EditorialStory() {
             sizes="100vw"
           />
         </div>
-        {/* Warm graded overlay — keeps it cinematic and text-legible, never muddy */}
+        {/* Fade the image into the dark section below */}
+        <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-b from-transparent to-[#171412]" />
+      </div>
+
+      {/* Desktop: full-bleed cinematic photograph */}
+      <div className="absolute inset-0 overflow-hidden hidden sm:block" aria-hidden="true">
+        <div className="animate-kenburns absolute -inset-[5%]">
+          <Image
+            src="/images/fashion/fashion7.jpg"
+            alt=""
+            fill
+            className="object-cover object-center"
+            sizes="100vw"
+          />
+        </div>
+        {/* Warm graded overlay — cinematic and text-legible */}
         <div
           className="absolute inset-0"
           style={{
@@ -44,12 +64,11 @@ export function EditorialStory() {
           className="absolute inset-0"
           style={{ background: 'radial-gradient(ellipse 60% 50% at 12% 8%, rgba(176,138,87,0.18), transparent 60%)' }}
         />
-        {/* Mobile: uniform base darkening so text stays readable on any image area */}
-        <div className="absolute inset-0 sm:hidden" style={{ background: 'rgba(12,7,4,0.62)' }} aria-hidden="true" />
         <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: GRAIN }} />
       </div>
 
-      <Container className="relative z-10 pt-24 sm:pt-28 lg:pt-32 pb-44 sm:pb-52 lg:pb-60">
+      {/* Text — on mobile: solid ink surface; desktop: over the overlay */}
+      <Container className="relative z-10 pt-10 sm:pt-28 lg:pt-32 pb-14 sm:pb-52 lg:pb-60">
 
         <Reveal>
           <p className="text-eyebrow text-[--color-gold-light]">Why The Picture Villa</p>
@@ -65,7 +84,7 @@ export function EditorialStory() {
         </Reveal>
 
         {/* Story + stats */}
-        <div className="mt-12 lg:mt-16 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8">
+        <div className="mt-10 lg:mt-16 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8">
           <div className="lg:col-span-6 space-y-5">
             <Reveal delay={0.1}>
               <p className="text-body-lg text-[--color-ivory]/85 leading-relaxed max-w-[50ch]">
@@ -100,7 +119,7 @@ export function EditorialStory() {
 
         {/* Credit roll */}
         <Reveal delay={0.2}>
-          <div className="mt-14 lg:mt-20 border-t border-[--color-ivory]/15 pt-8">
+          <div className="mt-10 lg:mt-20 border-t border-[--color-ivory]/15 pt-8">
             <div className="flex flex-wrap items-baseline gap-x-10 gap-y-4">
               <p className="text-[0.625rem] tracking-[0.25em] uppercase text-[--color-sandstone]/70">
                 Seen in work for

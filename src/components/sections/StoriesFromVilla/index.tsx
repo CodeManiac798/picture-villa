@@ -8,22 +8,14 @@ import type { GalleryItem } from '@/lib/media/types';
 /*
  * "Stories From The Villa" — curated social proof gallery.
  *
- * This is NOT an Instagram embed. Every cell is hand-picked and
- * intentionally composed in a premium editorial grid.
+ * Mobile composition: heading → CTA → photos (one visual stack, top to bottom).
+ * Desktop composition: heading | See More → photos → CTA at bottom.
  *
- * Layout: pseudo-masonry CSS Grid with explicit grid-area placement.
- * Each item has a `span` value ('tall' | 'wide' | 'square') that maps to
- * a CSS grid-row/col-span variant for visual rhythm. On mobile: 2-col grid.
- *
- * Hover: CSS group-hover reveals a translucent warm overlay + caption chip.
- * No JS hover state — keeps this section lightweight.
- *
- * MEDIA SWAP: replace the gradient placeholder inside each MEDIA SLOT with
- * <Image src={item.image?.src} ... fill className="img-cover" />
- * All hover logic, grid placement, and spacing survive unchanged.
+ * The mobile order was intentionally inverted from desktop: showing the CTA
+ * before the grid pulls it into the heading's immediate context, making
+ * heading + CTA feel like one unit rather than a disconnected footer.
  */
 
-/* Warm gradient standins per category — tonally distinct, all premium warm. */
 const CATEGORY_GRADES: Record<GalleryItem['category'], string> = {
   prewedding: 'linear-gradient(165deg, #F5DBCF 0%, #E4AA90 42%, #B06A52 78%, #6E3A2A 100%)',
   fashion:    'linear-gradient(165deg, #EDE5D6 0%, #C5AF88 45%, #7D5F3E 80%, #3E2E1C 100%)',
@@ -32,7 +24,6 @@ const CATEGORY_GRADES: Record<GalleryItem['category'], string> = {
   space:      'linear-gradient(165deg, #F0E5D5 0%, #D8C2A0 45%, #A08264 78%, #5A4030 100%)',
 };
 
-/* Grid placement — 3 columns desktop, varied row-spans for masonry feel. */
 const SPAN_CLASSES: Record<GalleryItem['span'], string> = {
   tall:   'row-span-2',
   wide:   'col-span-2',
@@ -46,8 +37,6 @@ function GalleryCell({ item, index }: { item: GalleryItem; index: number }) {
     <Reveal delay={index * 0.05} y={14}>
       <div className={`group relative overflow-hidden rounded-[var(--radius-card)] ${SPAN_CLASSES[item.span]}`}>
         <div className={`relative w-full overflow-hidden ${aspectClass}`}>
-          {/* ── MEDIA SLOT ───────────────────────────────────────────────────────
-              Real image is rendered when item.image?.src is present. */}
           <div className="absolute inset-0 transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.05]">
             {item.image?.src ? (
               <Image
@@ -60,14 +49,11 @@ function GalleryCell({ item, index }: { item: GalleryItem; index: number }) {
             ) : (
               <div className="absolute inset-0" style={{ background: CATEGORY_GRADES[item.category] }} aria-hidden="true" />
             )}
-            {/* grain */}
             <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: GRAIN }} aria-hidden="true" />
           </div>
 
-          {/* warm overlay on hover */}
           <div className="absolute inset-0 bg-[--color-ink]/0 transition-colors duration-500 group-hover:bg-[--color-ink]/25" aria-hidden="true" />
 
-          {/* caption chip — slides up on hover */}
           {item.caption && (
             <div className="absolute inset-x-0 bottom-0 translate-y-full transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0">
               <div className="bg-gradient-to-t from-black/55 via-black/10 to-transparent p-4">
@@ -86,8 +72,8 @@ export function StoriesFromVilla() {
     <section className="relative bg-[--color-ivory] py-14 sm:py-24 lg:py-28">
       <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
 
-        {/* Header */}
-        <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+        {/* Header — heading + desktop "See More" link */}
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between sm:gap-5">
           <div>
             <Reveal>
               <p className="text-eyebrow text-[--color-gold]">Stories From The Villa</p>
@@ -100,12 +86,13 @@ export function StoriesFromVilla() {
             </Reveal>
           </div>
 
+          {/* Desktop only — on mobile the CTA moves below the heading */}
           <Reveal delay={0.12}>
             <a
               href={SITE.social.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2.5 pb-1 text-label uppercase tracking-[0.18em] text-[--color-mist] hover:text-[--color-ink] transition-colors duration-300"
+              className="group hidden sm:inline-flex items-center gap-2.5 pb-1 text-label uppercase tracking-[0.18em] text-[--color-mist] transition-colors duration-300 hover:text-[--color-ink]"
             >
               See More
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
@@ -115,29 +102,44 @@ export function StoriesFromVilla() {
           </Reveal>
         </div>
 
-        {/* Masonry grid */}
-        <div className="mt-10 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3 lg:gap-5">
+        {/* Mobile CTA — sits immediately after the heading, before the photos */}
+        <div className="mt-5 sm:hidden">
+          <p className="text-body text-[--color-mist]">More stories every week on Instagram.</p>
+          <a
+            href={SITE.social.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover-lift mt-4 inline-flex h-11 items-center justify-center gap-2 rounded-full border border-[--color-sandstone] px-7 text-label uppercase tracking-[0.18em] text-[--color-charcoal] transition-colors duration-300 hover:border-[--color-charcoal]"
+          >
+            {SITE.social.instagramHandle}
+          </a>
+        </div>
+
+        {/* Photo grid */}
+        <div className="mt-6 sm:mt-10 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3 lg:gap-5">
           {STORIES_GALLERY.map((item, i) => (
             <GalleryCell key={item.id} item={item} index={i} />
           ))}
         </div>
 
-        {/* Instagram CTA */}
-        <Reveal delay={0.1}>
-          <div className="mt-8 flex flex-col items-center gap-4 text-center sm:flex-row sm:justify-center sm:gap-6">
-            <p className="text-body text-[--color-mist]">
-              More stories every week on Instagram.
-            </p>
-            <a
-              href={SITE.social.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover-lift inline-flex h-11 items-center justify-center gap-2 rounded-full border border-[--color-sandstone] px-7 text-label uppercase tracking-[0.18em] text-[--color-charcoal] transition-colors duration-300 hover:border-[--color-charcoal]"
-            >
-              {SITE.social.instagramHandle}
-            </a>
-          </div>
-        </Reveal>
+        {/* Desktop CTA — hidden on mobile (handled above) */}
+        <div className="hidden sm:block">
+          <Reveal delay={0.1}>
+            <div className="mt-12 flex flex-row items-center justify-center gap-6">
+              <p className="text-body text-[--color-mist]">
+                More stories every week on Instagram.
+              </p>
+              <a
+                href={SITE.social.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover-lift inline-flex h-11 items-center justify-center gap-2 rounded-full border border-[--color-sandstone] px-7 text-label uppercase tracking-[0.18em] text-[--color-charcoal] transition-colors duration-300 hover:border-[--color-charcoal]"
+              >
+                {SITE.social.instagramHandle}
+              </a>
+            </div>
+          </Reveal>
+        </div>
       </div>
     </section>
   );
