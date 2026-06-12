@@ -94,7 +94,7 @@ export function EditorialStory() {
               </p>
             </Reveal>
             <Reveal delay={0.2}>
-              <p className="text-body text-[--color-ivory]/65 leading-relaxed max-w-[50ch]">
+              <p className="text-body text-[--color-ivory]/80 leading-relaxed max-w-[50ch]">
                 Every set is kept like a film stage — dressed, lit and reset
                 between productions. You arrive, you shoot. The estate does the rest.
               </p>
@@ -108,7 +108,7 @@ export function EditorialStory() {
                   <p className="font-display text-4xl sm:text-5xl text-[--color-ivory]">
                     {stat.value}
                   </p>
-                  <p className="mt-2 text-[0.6rem] tracking-[0.2em] uppercase text-[--color-sandstone]/80 leading-relaxed">
+                  <p className="text-label mt-2 text-[--color-sandstone] leading-relaxed">
                     {stat.label}
                   </p>
                 </Reveal>
@@ -121,13 +121,13 @@ export function EditorialStory() {
         <Reveal delay={0.2}>
           <div className="mt-10 lg:mt-20 border-t border-[--color-ivory]/15 pt-8">
             <div className="flex flex-wrap items-baseline gap-x-10 gap-y-4">
-              <p className="text-[0.625rem] tracking-[0.25em] uppercase text-[--color-sandstone]/70">
+              <p className="text-label text-[--color-sandstone]">
                 Seen in work for
               </p>
               {CLIENTS.map((name) => (
                 <span
                   key={name}
-                  className="font-display text-lg sm:text-xl text-[--color-ivory]/80 transition-colors duration-300 hover:text-[--color-gold-light]"
+                  className="font-display text-lg sm:text-xl text-[--color-ivory]/90 transition-colors duration-300 hover:text-[--color-gold-light]"
                 >
                   {name}
                 </span>

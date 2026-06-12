@@ -35,17 +35,17 @@ export function IntroStatement() {
               <div className="mt-7 sm:mt-8 flex items-center gap-8">
                 <div>
                   <p className="font-display text-3xl text-[--color-ink]">18</p>
-                  <p className="mt-1 text-[0.6rem] tracking-[0.2em] uppercase text-[--color-mist]">Worlds</p>
+                  <p className="text-label mt-1 text-[--color-mist]">Worlds</p>
                 </div>
                 <div className="h-10 w-px bg-[--color-sandstone]" aria-hidden="true" />
                 <div>
                   <p className="font-display text-3xl text-[--color-ink]">03</p>
-                  <p className="mt-1 text-[0.6rem] tracking-[0.2em] uppercase text-[--color-mist]">Private acres</p>
+                  <p className="text-label mt-1 text-[--color-mist]">Private acres</p>
                 </div>
                 <div className="h-10 w-px bg-[--color-sandstone]" aria-hidden="true" />
                 <div>
                   <p className="font-display text-3xl text-[--color-ink]">20</p>
-                  <p className="mt-1 text-[0.6rem] tracking-[0.2em] uppercase text-[--color-mist]">Mins from the city</p>
+                  <p className="text-label mt-1 text-[--color-mist]">Mins from the city</p>
                 </div>
               </div>
             </Reveal>
@@ -63,10 +63,10 @@ export function IntroStatement() {
                     className="object-cover object-center transition-transform duration-[1200ms] ease-[--ease-luxury] group-hover:scale-[1.05]"
                     sizes="(max-width: 1024px) 90vw, 38vw"
                   />
-                  <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#1a120c]/55 to-transparent" aria-hidden="true" />
-                  <figcaption className="absolute inset-x-0 bottom-0 flex items-baseline justify-between p-4 text-[0.6rem] tracking-[0.22em] uppercase text-[--color-ivory]/80">
+                  <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-[#1a120c]/70 to-transparent" aria-hidden="true" />
+                  <figcaption className="text-label absolute inset-x-0 bottom-0 flex items-baseline justify-between p-4 text-[--color-ivory]/95">
                     <span>The Library</span>
-                    <span className="text-[--color-ivory]/55">14 / 18</span>
+                    <span className="text-[--color-ivory]/75">14 / 18</span>
                   </figcaption>
                 </div>
               </figure>

@@ -84,14 +84,14 @@ function StoryCard({ archetype }: { archetype: StoryArchetype }) {
         aria-hidden="true"
       />
 
-      {/* archetype number — top right, very quiet */}
-      <div className="absolute right-4 top-4 font-display text-[0.6rem] italic text-white/40">
+      {/* archetype number — top right, decorative */}
+      <div className="absolute right-4 top-4 font-display text-[0.6rem] italic text-white/60">
         {archetype.number}
       </div>
 
       {/* bottom panel — name always, copy expands */}
-      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent p-5">
-        <p className="text-eyebrow text-[0.5rem] text-white/60">{archetype.descriptor}</p>
+      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent p-5">
+        <p className="text-label text-white/85">{archetype.descriptor}</p>
         <p className="mt-1 text-sm font-medium leading-tight tracking-tight text-white">
           {archetype.name}
         </p>
@@ -106,7 +106,7 @@ function StoryCard({ archetype }: { archetype: StoryArchetype }) {
           transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
           className="overflow-hidden"
         >
-          <p className="mt-2 font-display text-[0.8rem] italic leading-snug text-white/75">
+          <p className="mt-2 font-display text-[0.875rem] italic leading-snug text-white/90">
             {archetype.emotionalCopy}
           </p>
         </motion.div>

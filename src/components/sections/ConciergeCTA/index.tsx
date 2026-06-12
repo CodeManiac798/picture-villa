@@ -55,7 +55,7 @@ export function ConciergeCTA() {
         </Reveal>
 
         <Reveal delay={0.2}>
-          <p className="mx-auto mt-7 max-w-[40ch] text-body-lg text-[--color-ink]/75 leading-relaxed">
+          <p className="mx-auto mt-7 max-w-[40ch] text-body-lg text-[--color-ink]/85 leading-relaxed">
             One production at a time. Tell us what you&apos;re making —
             we&apos;ll open the gates.
           </p>
@@ -81,7 +81,7 @@ export function ConciergeCTA() {
         </Reveal>
 
         <Reveal delay={0.4}>
-          <p className="mt-14 text-[0.625rem] tracking-[0.25em] uppercase text-[--color-ink]/50">
+          <p className="text-label mt-14 text-[--color-ink]/70">
             {SITE.contact.phoneDisplay} &middot; {SITE.location.area}
           </p>
         </Reveal>

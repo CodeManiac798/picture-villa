@@ -29,10 +29,10 @@ function Plate({ className, caption, meta, src, alt, sizes }: PlateProps) {
           className="object-cover object-center transition-transform duration-[1300ms] ease-[--ease-luxury] group-hover:scale-[1.06]"
           sizes={sizes}
         />
-        <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-[#1a120c]/65 to-transparent" aria-hidden="true" />
+        <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-[#1a120c]/70 to-transparent" aria-hidden="true" />
         <figcaption className="absolute inset-x-0 bottom-0 flex items-baseline justify-between p-5 sm:p-6">
-          <span className="text-[0.625rem] tracking-[0.25em] uppercase text-[--color-ivory]/80">{caption}</span>
-          <span className="text-[0.625rem] tracking-[0.25em] uppercase text-[--color-ivory]/50">{meta}</span>
+          <span className="text-label text-[--color-ivory]/95">{caption}</span>
+          <span className="text-label text-[--color-ivory]/75">{meta}</span>
         </figcaption>
       </div>
     </figure>

@@ -79,7 +79,7 @@ export function SpaceCard({ space, className, aspect = 'portrait', size = 'base'
         <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
           <div className="flex items-end justify-between gap-3">
             <div className="transition-transform duration-500 ease-[--ease-luxury] group-hover:-translate-y-0.5">
-              <p className="text-[0.5rem] font-medium tracking-[0.25em] uppercase text-[--color-ivory]/65">
+              <p className="text-label text-[--color-ivory]/85">
                 {categoryLabel[space.category]}
               </p>
               <h3 className={cn(
@@ -89,13 +89,13 @@ export function SpaceCard({ space, className, aspect = 'portrait', size = 'base'
                 {space.name}
               </h3>
             </div>
-            <span className="shrink-0 font-display italic text-sm text-[--color-ivory]/55" aria-hidden="true">
+            <span className="shrink-0 font-display italic text-sm text-[--color-ivory]/70" aria-hidden="true">
               {String(space.order).padStart(2, '0')}
             </span>
           </div>
 
           {/* Reveal line — draws in on hover */}
-          <span className="mt-3 flex items-center gap-3 text-[0.55rem] uppercase tracking-[0.22em] text-[--color-ivory]/0 transition-colors duration-500 group-hover:text-[--color-ivory]/80">
+          <span className="text-label mt-3 flex items-center gap-3 text-[--color-ivory]/0 transition-colors duration-500 group-hover:text-[--color-ivory]/90">
             View Space
             <span className="h-px w-0 bg-[--color-gold-light] transition-all duration-500 ease-[--ease-luxury] group-hover:w-10" aria-hidden="true" />
           </span>

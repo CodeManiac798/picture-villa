@@ -196,7 +196,7 @@ function CinematicFrame({
         />
 
         {/* caption — emotional, restrained */}
-        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/55 via-black/15 to-transparent p-4 sm:p-5">
+        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/65 via-black/20 to-transparent p-4 sm:p-5">
           <div className="flex items-center gap-2">
             {frame.live && (
               <motion.span
@@ -206,7 +206,7 @@ function CinematicFrame({
                 aria-hidden="true"
               />
             )}
-            <p className="text-eyebrow text-[0.5rem] text-white/75">{frame.eyebrow}</p>
+            <p className="text-label text-white/90">{frame.eyebrow}</p>
           </div>
           <p className="mt-0.5 font-display text-base italic leading-tight text-white sm:text-lg">
             {frame.caption}
@@ -322,7 +322,7 @@ export function HeroSection() {
               Feels like private confidence, not a marketing badge. */}
           <motion.p
             variants={blurRise}
-            className="mt-3 text-[0.58rem] tracking-[0.22em] uppercase text-[--color-mist]/50 sm:hidden"
+            className="text-label mt-3 text-[--color-mist] sm:hidden"
           >
             Trusted by over 1,200 couples.
           </motion.p>
@@ -380,7 +380,7 @@ export function HeroSection() {
 
       {/* Scroll cue */}
       <div className="absolute bottom-24 right-5 z-10 hidden flex-col items-center gap-2 sm:right-8 sm:flex lg:right-12">
-        <span className="text-[0.6rem] uppercase tracking-[0.25em] text-[--color-mist] [writing-mode:vertical-rl]">
+        <span className="text-label text-[--color-mist] [writing-mode:vertical-rl]">
           Scroll
         </span>
         <motion.span

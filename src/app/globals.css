@@ -17,7 +17,7 @@
   --color-champagne:  #D8C7AE;  /* warm accent glow */
   --color-charcoal:   #1F1F1F;
   --color-ink:        #171412;  /* soft warm black — never pure black */
-  --color-mist:       #6E675C;  /* secondary text — must stay readable */
+  --color-mist:       #5F574B;  /* secondary text — ≥5.7:1 on cream, ≥6.6:1 on ivory */
 
   /* Spacing extensions */
   --spacing-18: 4.5rem;
@@ -46,7 +46,7 @@
   --color-surface:    #EDE5D8;
   --color-border:     #E3D9C9;
   --color-text:       #1F1F1F;
-  --color-text-muted: #6E675C;
+  --color-text-muted: #5F574B;
   --color-accent:     #B08A57;
   --color-champagne:  #D8C7AE;
 
@@ -119,7 +119,16 @@ body {
   line-height: 1.6;
 }
 
-/* Label / eyebrow text */
+/* Label / eyebrow text
+ *
+ * READABILITY LAW (applies to every component):
+ *   - No informational text below 0.6875rem — use .text-label / .text-eyebrow,
+ *     never a smaller arbitrary size. Purely decorative marks are exempt.
+ *   - No text opacity below /70. Hierarchy comes from size/weight/color tokens,
+ *     not transparency.
+ *   - Secondary text is --color-mist (solid). Never mist with added opacity.
+ *   - Text over a photograph requires a ≥60% scrim under the text block.
+ */
 .text-label {
   font-size: 0.6875rem;
   font-weight: 500;

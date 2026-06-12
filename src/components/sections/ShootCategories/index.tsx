@@ -60,13 +60,13 @@ export function ShootCategories() {
 
                   {/* Identity */}
                   <div className="absolute inset-x-0 bottom-0 p-6 sm:p-7">
-                    <p className="text-[0.625rem] tracking-[0.25em] uppercase text-[--color-gold-light]">
+                    <p className="text-label text-[--color-gold-light]">
                       {cat.eyebrow}
                     </p>
                     <h3 className="mt-2 font-display text-2xl sm:text-3xl text-[--color-ivory] transition-transform duration-500 ease-[--ease-luxury] group-hover:-translate-y-0.5">
                       {cat.name}
                     </h3>
-                    <span className="mt-4 inline-flex items-center gap-3 text-[0.625rem] tracking-[0.22em] uppercase text-[--color-ivory]/85">
+                    <span className="text-label mt-4 inline-flex items-center gap-3 text-[--color-ivory]/90">
                       Explore
                       <span className="h-px w-7 bg-[--color-ivory]/60 transition-all duration-500 ease-[--ease-luxury] group-hover:w-12 group-hover:bg-[--color-gold-light]" aria-hidden="true" />
                     </span>

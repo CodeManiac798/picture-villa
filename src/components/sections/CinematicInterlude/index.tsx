@@ -62,7 +62,7 @@ export function CinematicInterlude() {
       <div className="absolute inset-x-0 bottom-0 z-10 pb-20 sm:pb-24 lg:pb-28">
         <div className="mx-auto max-w-7xl px-5 text-center sm:px-8 lg:px-12">
           <motion.p
-            className="text-eyebrow text-[--color-gold-light]/90"
+            className="text-eyebrow text-[--color-gold-light]"
             initial={reduce ? false : { opacity: 0, y: 18, filter: 'blur(8px)' }}
             whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             viewport={{ once: true, margin: '-25%' }}
@@ -84,7 +84,7 @@ export function CinematicInterlude() {
 
       {/* Grounding caption — quiet, bottom-left */}
       <motion.p
-        className="absolute bottom-6 left-5 z-10 text-[0.55rem] uppercase tracking-[0.28em] text-[--color-ivory]/45 sm:left-8 lg:left-12"
+        className="text-label absolute bottom-6 left-5 z-10 text-[--color-ivory]/70 sm:left-8 lg:left-12"
         initial={reduce ? false : { opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, margin: '-25%' }}

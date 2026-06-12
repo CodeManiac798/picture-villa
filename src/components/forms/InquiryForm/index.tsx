@@ -19,7 +19,7 @@ const labelClass = 'block text-label text-[--color-mist] mb-2';
 const inputClass = cn(
   'w-full bg-transparent border-b border-[--color-beige]',
   'px-0 py-3 text-body text-[--color-charcoal]',
-  'placeholder:text-[--color-mist]/60',
+  'placeholder:text-[--color-mist]/70',
   'focus:outline-none focus:border-[--color-gold]',
   'transition-colors duration-200',
 );
