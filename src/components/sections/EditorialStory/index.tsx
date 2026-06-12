@@ -21,15 +21,17 @@ const CLIENTS = ['Nykaa', 'Spotify India', 'Paytm', "Pond's", 'Nestlé'] as cons
 export function EditorialStory() {
   return (
     <section className="relative overflow-hidden bg-[--color-ink]">
-      {/* Full-bleed cinematic photograph */}
-      <div className="absolute inset-0" aria-hidden="true">
-        <Image
-          src="/images/fashion/fashion7.jpg"
-          alt=""
-          fill
-          className="object-cover object-center"
-          sizes="100vw"
-        />
+      {/* Full-bleed cinematic photograph — breathing, never frozen */}
+      <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
+        <div className="animate-kenburns absolute -inset-[5%]">
+          <Image
+            src="/images/fashion/fashion7.jpg"
+            alt=""
+            fill
+            className="object-cover object-center"
+            sizes="100vw"
+          />
+        </div>
         {/* Warm graded overlay — keeps it cinematic and text-legible, never muddy */}
         <div
           className="absolute inset-0"

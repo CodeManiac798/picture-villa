@@ -117,7 +117,9 @@ function StoryCard({ archetype }: { archetype: StoryArchetype }) {
 
 export function ChooseYourStory() {
   return (
-    <section className="relative overflow-hidden bg-[--color-ivory] py-20 sm:py-24 lg:py-28">
+    // Compressed beat — tighter than its neighbours so the page breathes in
+    // before the categories and spaces open back up.
+    <section className="relative overflow-hidden bg-[--color-ivory] py-14 sm:py-16 lg:py-20">
 
       {/* Section header */}
       <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">

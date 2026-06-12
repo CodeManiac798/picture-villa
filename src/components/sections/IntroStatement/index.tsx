@@ -10,7 +10,7 @@ export function IntroStatement() {
   return (
     <section className="relative bg-[--color-cream]">
       <Container className="relative z-10 py-20 sm:py-24 lg:py-28">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
 
           {/* Statement */}
           <div className="lg:col-span-6 lg:pr-8">
@@ -56,16 +56,16 @@ export function IntroStatement() {
               <figure className="group">
                 <div className="relative aspect-[3/4] overflow-hidden rounded-[var(--radius-card)] bg-[--color-beige] shadow-[0_30px_70px_-28px_rgba(40,24,16,0.5)]">
                   <Image
-                    src="/images/spaces/raj-mahal.jpg"
-                    alt="A couple in the illuminated Raj Mahal courtyard at The Picture Villa"
+                    src="/images/hero/pre wedding 2.jpeg"
+                    alt="A couple sharing a quiet moment in the library at The Picture Villa"
                     fill
                     className="object-cover object-center transition-transform duration-[1200ms] ease-[--ease-luxury] group-hover:scale-[1.05]"
                     sizes="(max-width: 1024px) 90vw, 38vw"
                   />
                   <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#1a120c]/55 to-transparent" aria-hidden="true" />
                   <figcaption className="absolute inset-x-0 bottom-0 flex items-baseline justify-between p-4 text-[0.6rem] tracking-[0.22em] uppercase text-[--color-ivory]/80">
-                    <span>Raj Mahal</span>
-                    <span className="text-[--color-ivory]/55">01 / 18</span>
+                    <span>The Library</span>
+                    <span className="text-[--color-ivory]/55">14 / 18</span>
                   </figcaption>
                 </div>
               </figure>

@@ -48,13 +48,20 @@ export function SpaceCard({ space, className, aspect = 'portrait', size = 'base'
       {/* Image plate */}
       <div className={cn('relative overflow-hidden rounded-[var(--radius-card)] bg-[--color-beige] shadow-[0_20px_50px_-24px_rgba(40,24,16,0.4)]', aspectClasses[aspect])}>
         {space.coverReady ? (
-          <Image
-            src={space.coverImage.src}
-            alt={space.coverImage.alt}
-            fill
-            className="object-cover object-center transition-transform duration-[1100ms] ease-[--ease-luxury] group-hover:scale-[1.07]"
-            sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 40vw"
-          />
+          <>
+            <Image
+              src={space.coverImage.src}
+              alt={space.coverImage.alt}
+              fill
+              className="object-cover object-center transition-transform duration-[1600ms] ease-[--ease-luxury] group-hover:scale-[1.06] group-hover:-translate-y-[1.5%]"
+              sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 40vw"
+            />
+            {/* Resting warm grade — lifts on hover so the space "wakes up" in true color */}
+            <div
+              className="absolute inset-0 bg-[--color-champagne] mix-blend-soft-light opacity-50 transition-opacity duration-[900ms] ease-[--ease-luxury] group-hover:opacity-0"
+              aria-hidden="true"
+            />
+          </>
         ) : (
           <div
             className="absolute inset-0 transition-transform duration-[1100ms] ease-[--ease-luxury] group-hover:scale-[1.05]"

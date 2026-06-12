@@ -11,21 +11,23 @@ import { buildBookingWhatsAppUrl } from '@/lib/utils/whatsapp';
 export function ConciergeCTA() {
   return (
     <section className="relative overflow-hidden bg-[--color-cream]">
-      {/* Immersive warm background */}
-      <div className="absolute inset-0" aria-hidden="true">
-        <Image
-          src="/images/prewedding/pre wedding 3.jpg"
-          alt=""
-          fill
-          className="object-cover object-center"
-          sizes="100vw"
-        />
-        {/* Champagne wash — keeps it warm and legible, never dark */}
+      {/* Immersive warm background — alive, drifting like a held memory */}
+      <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
+        <div className="animate-kenburns absolute -inset-[5%]">
+          <Image
+            src="/images/prewedding/pre wedding 3.jpg"
+            alt=""
+            fill
+            className="object-cover object-center"
+            sizes="100vw"
+          />
+        </div>
+        {/* Champagne wash — lighter at centre so the moment reads through, never dark */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              'radial-gradient(ellipse 80% 70% at 50% 50%, rgba(237,229,216,0.82) 0%, rgba(237,229,216,0.93) 55%, rgba(237,229,216,0.97) 100%)',
+              'radial-gradient(ellipse 80% 70% at 50% 50%, rgba(237,229,216,0.68) 0%, rgba(237,229,216,0.86) 55%, rgba(237,229,216,0.94) 100%)',
           }}
         />
         <div
@@ -34,7 +36,7 @@ export function ConciergeCTA() {
         />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-2xl px-6 py-28 sm:py-32 lg:py-40 text-center">
+      <div className="relative z-10 mx-auto max-w-2xl px-6 py-32 sm:py-36 lg:py-48 text-center">
         <Reveal>
           <p className="text-eyebrow text-[--color-gold]">
             Private Bookings &middot; By Appointment
@@ -43,8 +45,8 @@ export function ConciergeCTA() {
 
         <Reveal delay={0.1}>
           <h2 className="text-heading mt-7 text-[--color-ink]">
-            Begin with{' '}
-            <span className="accent-serif text-[--color-gold]">a conversation.</span>
+            Your story could begin{' '}
+            <span className="accent-serif text-[--color-gold]">here.</span>
           </h2>
         </Reveal>
 
