@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import { AnimatePresence } from 'framer-motion';
 import { NAV_CONFIG } from '@/lib/constants/navigation';
 import { SITE } from '@/lib/constants/site';
@@ -19,9 +20,16 @@ function InstagramGlyph({ className }: { className?: string }) {
 }
 
 export function Navbar() {
+  const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
+
+  // The homepage opens on a full-bleed photograph — the nav sits in ivory
+  // over its top scrim until the glass appears on scroll. Inner pages open
+  // on light grounds, so they keep charcoal throughout.
+  const light = pathname === '/' && !scrolled && !menuOpen;
+  const inkClass = light ? 'text-[--color-ivory]' : 'text-[--color-charcoal]';
 
   // Warm glass on scroll + hide on scroll-down / reveal on scroll-up.
   // The hero sits on a light warm wash, so nav text stays dark throughout.
@@ -55,7 +63,10 @@ export function Navbar() {
           {/* Logo */}
           <Link
             href="/"
-            className="whitespace-nowrap font-display text-[1.0625rem] uppercase tracking-[0.22em] text-[--color-charcoal] transition-colors duration-300 hover:text-[--color-gold]"
+            className={cn(
+              'whitespace-nowrap font-display text-[1.0625rem] uppercase tracking-[0.22em] transition-colors duration-300 hover:text-[--color-gold]',
+              inkClass,
+            )}
             aria-label="The Picture Villa — home"
           >
             The Picture Villa
@@ -68,7 +79,8 @@ export function Navbar() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  'relative text-label text-[--color-charcoal] transition-colors duration-300 hover:text-[--color-gold]',
+                  'relative text-label transition-colors duration-300 hover:text-[--color-gold]',
+                  inkClass,
                   'after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-full after:bg-[--color-gold]',
                   'after:origin-right after:scale-x-0 after:transition-transform after:duration-500',
                   'hover:after:origin-left hover:after:scale-x-100',
@@ -86,13 +98,18 @@ export function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="The Picture Villa on Instagram"
-              className="text-[--color-charcoal] transition-colors duration-300 hover:text-[--color-gold]"
+              className={cn('transition-colors duration-300 hover:text-[--color-gold]', inkClass)}
             >
               <InstagramGlyph className="h-[18px] w-[18px]" />
             </a>
             <Link
               href={NAV_CONFIG.cta.href}
-              className="hover-lift inline-flex h-10 items-center justify-center rounded-full bg-[--color-ink] px-7 text-label uppercase tracking-[0.18em] text-[--color-ivory]"
+              className={cn(
+                'hover-lift inline-flex h-10 items-center justify-center rounded-full px-7 text-label uppercase tracking-[0.18em] transition-colors duration-300',
+                light
+                  ? 'bg-[--color-ivory] text-[--color-ink]'
+                  : 'bg-[--color-ink] text-[--color-ivory]',
+              )}
             >
               {NAV_CONFIG.cta.label}
             </Link>
@@ -102,7 +119,7 @@ export function Navbar() {
           <button
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={menuOpen}
-            className="-mr-2 flex flex-col justify-center gap-[5px] p-2 text-[--color-charcoal] lg:hidden"
+            className={cn('-mr-2 flex flex-col justify-center gap-[5px] p-2 transition-colors duration-300 lg:hidden', inkClass)}
             onClick={() => setMenuOpen((v) => !v)}
           >
             <span className={cn('block h-px w-6 origin-center bg-current transition-all duration-300', menuOpen && 'translate-y-[7px] rotate-45')} />

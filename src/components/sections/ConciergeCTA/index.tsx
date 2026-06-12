@@ -44,9 +44,8 @@ export function ConciergeCTA() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <h2 className="text-heading mt-7 text-[--color-ink]">
-            Your story could begin{' '}
-            <span className="accent-serif text-[--color-gold]">here.</span>
+          <h2 className="text-display-xl mt-7 text-[--color-ink]">
+            Your story could begin here.
           </h2>
         </Reveal>
 
