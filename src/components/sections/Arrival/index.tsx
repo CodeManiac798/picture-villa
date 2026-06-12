@@ -45,12 +45,28 @@ export function Arrival() {
         </motion.div>
       </motion.div>
 
+      {/* Warm cinematic grade — golden hour, never a flat raw photo */}
+      <div
+        className="absolute inset-0"
+        style={{ background: 'linear-gradient(178deg, rgba(42,24,12,0.18) 0%, transparent 32%, transparent 52%, rgba(28,16,9,0.32) 100%)' }}
+        aria-hidden="true"
+      />
+      {/* Sun bleed — warm light crawling in from the top corner */}
+      <div
+        className="absolute inset-0"
+        style={{ background: 'radial-gradient(72% 56% at 80% 6%, rgba(255,226,182,0.34), transparent 60%)' }}
+        aria-hidden="true"
+      />
+
       {/* Scrims — top for the navbar, bottom for the line. Warm black, never grey. */}
       <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-[#140d08]/60 to-transparent" aria-hidden="true" />
-      <div className="absolute inset-x-0 bottom-0 h-[62%] bg-gradient-to-t from-[#140d08]/85 via-[#140d08]/35 to-transparent" aria-hidden="true" />
+      <div className="absolute inset-x-0 bottom-0 h-[70%] bg-gradient-to-t from-[#140d08]/90 via-[#140d08]/42 to-transparent" aria-hidden="true" />
 
       {/* Film grain — reserved for full-bleed cinema panels */}
       <div className="pointer-events-none absolute inset-0 opacity-[0.06]" style={{ backgroundImage: GRAIN }} aria-hidden="true" />
+
+      {/* Lens vignette — cinematic edge depth */}
+      <div className="pointer-events-none absolute inset-0" style={{ boxShadow: 'inset 0 0 200px 44px rgba(20,12,7,0.42)' }} aria-hidden="true" />
 
       {/* The line */}
       <div className="absolute inset-x-0 bottom-0 z-10 pb-16 sm:pb-20 lg:pb-24">

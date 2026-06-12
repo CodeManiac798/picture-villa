@@ -90,9 +90,11 @@ function WorldPlate({ world }: { world: World }) {
       {/* The day turning — per-plate warm tint */}
       <div className="absolute inset-0" style={{ background: world.tint }} aria-hidden="true" />
 
-      {/* Scrim under the slate + voice */}
-      <div className="absolute inset-x-0 bottom-0 h-[45%] bg-gradient-to-t from-[#140d08]/80 via-[#140d08]/30 to-transparent" aria-hidden="true" />
+      {/* Scrim under the slate + voice — deep enough to read on any image */}
+      <div className="absolute inset-x-0 bottom-0 h-[62%] bg-gradient-to-t from-[#140d08]/92 via-[#140d08]/45 to-transparent" aria-hidden="true" />
       <div className="pointer-events-none absolute inset-0 opacity-[0.05]" style={{ backgroundImage: GRAIN }} aria-hidden="true" />
+      {/* Lens vignette — cinematic depth around the frame */}
+      <div className="pointer-events-none absolute inset-0" style={{ boxShadow: 'inset 0 0 170px 34px rgba(20,13,8,0.42)' }} aria-hidden="true" />
 
       {/* Slate + voice */}
       <div className="absolute inset-x-0 bottom-0 pb-12 sm:pb-14">
@@ -124,14 +126,9 @@ export function TheWorlds() {
   return (
     <section aria-label="The worlds of The Picture Villa">
       {/* Opening breath — orientation before immersion */}
-      <div
-        className="relative px-5 py-20 sm:px-8 sm:py-24 lg:px-12"
-        style={{
-          background:
-            'radial-gradient(110% 90% at 80% 0%, rgba(245,225,197,0.9), transparent 60%), linear-gradient(180deg, #F8F5F0 0%, #F0E7D8 100%)',
-        }}
-      >
-        <div className="mx-auto w-full max-w-7xl">
+      <div className="bg-field-warm relative px-5 py-20 sm:px-8 sm:py-24 lg:px-12">
+        <div className="pointer-events-none absolute inset-0 opacity-[0.04]" style={{ backgroundImage: GRAIN }} aria-hidden="true" />
+        <div className="relative mx-auto w-full max-w-7xl">
           <Reveal>
             <p className="slate text-[--color-mist]">The Worlds — eighteen sets, one estate</p>
           </Reveal>
@@ -148,9 +145,10 @@ export function TheWorlds() {
         <WorldPlate key={world.slug} world={world} />
       ))}
 
-      {/* Atlas closer — the dusk register */}
-      <div className="bg-[--color-dusk] px-5 py-20 sm:px-8 sm:py-24 lg:px-12">
-        <div className="mx-auto w-full max-w-7xl text-center">
+      {/* Atlas closer — the lit dusk register */}
+      <div className="bg-field-dusk relative px-5 py-20 sm:px-8 sm:py-24 lg:px-12">
+        <div className="pointer-events-none absolute inset-0 opacity-[0.05]" style={{ backgroundImage: GRAIN }} aria-hidden="true" />
+        <div className="relative mx-auto w-full max-w-7xl text-center">
           <Reveal>
             <p className="text-display-lg mx-auto max-w-[20ch] text-[--color-ivory]">
               — and fifteen more worlds beyond these.

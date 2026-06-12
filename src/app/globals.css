@@ -266,6 +266,37 @@ body {
   -webkit-backdrop-filter: saturate(140%) blur(16px);
 }
 
+/* ─── ATMOSPHERE FIELDS ──────────────────────────────────────────────────────
+ * Lit backgrounds for light/dusk sections. A section is NEVER a flat fill —
+ * it is a graded environment with warm radial light and cinematic depth. */
+
+/* Sunlit ivory — warm light from the top-right, champagne settling below. */
+.bg-field-warm {
+  background-color: var(--color-ivory);
+  background-image:
+    radial-gradient(125% 85% at 88% -12%, rgba(245, 225, 197, 0.9), transparent 55%),
+    radial-gradient(95% 75% at 4% 112%, rgba(216, 199, 174, 0.6), transparent 60%),
+    linear-gradient(180deg, #FBF7F0 0%, #F1E8D9 100%);
+}
+
+/* Deeper warm champagne — for transitional breaths. Golden above, amber below. */
+.bg-field-champagne {
+  background-color: var(--color-cream);
+  background-image:
+    radial-gradient(115% 90% at 50% -12%, rgba(245, 225, 197, 0.92), transparent 55%),
+    radial-gradient(85% 75% at 50% 122%, rgba(176, 138, 87, 0.3), transparent 60%),
+    linear-gradient(180deg, #F1E6D4 0%, #E6D8C0 100%);
+}
+
+/* Lit dusk — warm stone with an amber glow, never a flat dark fill. */
+.bg-field-dusk {
+  background-color: var(--color-dusk);
+  background-image:
+    radial-gradient(105% 80% at 82% -4%, rgba(176, 138, 87, 0.34), transparent 55%),
+    radial-gradient(95% 75% at 8% 112%, rgba(58, 47, 37, 0.5), transparent 60%),
+    linear-gradient(180deg, #423529 0%, #2A2119 100%);
+}
+
 /* Soft premium lift on hover */
 .hover-lift {
   transition: transform var(--duration-base) var(--ease-luxury),

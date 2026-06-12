@@ -110,8 +110,9 @@ export function TheProof() {
       </div>
 
       {/* ── Real moments — light register, slates below the photographs ───── */}
-      <div className="bg-[--color-ivory] py-16 sm:py-20">
-        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12">
+      <div className="bg-field-warm relative py-16 sm:py-20">
+        <div className="pointer-events-none absolute inset-0 opacity-[0.04]" style={{ backgroundImage: GRAIN }} aria-hidden="true" />
+        <div className="relative mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12">
           <Reveal>
             <p className="slate text-[--color-mist]">Real moments — from the estate</p>
           </Reveal>
