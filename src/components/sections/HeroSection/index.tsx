@@ -322,9 +322,9 @@ export function HeroSection() {
               Feels like private confidence, not a marketing badge. */}
           <motion.p
             variants={blurRise}
-            className="mt-3 text-[0.6rem] tracking-[0.2em] uppercase text-[--color-mist]/60 sm:hidden"
+            className="mt-3 text-[0.58rem] tracking-[0.22em] uppercase text-[--color-mist]/50 sm:hidden"
           >
-            1,200+ couples &amp; brands
+            Trusted by over 1,200 couples.
           </motion.p>
 
           <motion.p
@@ -349,8 +349,9 @@ export function HeroSection() {
             </Link>
             <Link
               href="/book"
-              className="group relative py-2 text-label uppercase tracking-[0.18em] text-[--color-ink] after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:bg-[--color-ink]/40 after:transition-colors after:duration-300 hover:after:bg-[--color-ink]"
+              className="group flex items-center gap-3 py-1 text-label uppercase tracking-[0.18em] text-[--color-mist] transition-colors duration-300 hover:text-[--color-gold]"
             >
+              <span className="h-px w-5 bg-[--color-sandstone] transition-colors duration-300 group-hover:bg-[--color-gold]" aria-hidden="true" />
               Book a Visit
             </Link>
           </motion.div>
