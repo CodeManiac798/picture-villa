@@ -249,7 +249,7 @@ export function HeroSection() {
     <section
       ref={sectionRef}
       onPointerMove={handlePointer}
-      className="relative flex min-h-[100svh] flex-col overflow-hidden"
+      className="relative flex min-h-[100svh] flex-col overflow-hidden isolate"
     >
       {/* Living golden-hour wash — warm, never dark. Scales AND drifts laterally
           so the ambient light feels like late-afternoon sun crawling, not a loop. */}

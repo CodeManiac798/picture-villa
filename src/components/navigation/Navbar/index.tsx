@@ -43,10 +43,11 @@ export function Navbar() {
     <>
       <header
         className={cn(
-          'fixed inset-x-0 top-0 z-50 transition-[transform,background-color,backdrop-filter,border-color] duration-500',
+          'fixed inset-x-0 top-0 z-50 transition-[transform,opacity,background-color,backdrop-filter,border-color] duration-300',
           'ease-[cubic-bezier(0.22,1,0.36,1)]',
           scrolled ? 'glass-warm border-b border-[--color-beige]/70' : 'border-b border-transparent',
           concealed ? '-translate-y-full' : 'translate-y-0',
+          menuOpen ? 'opacity-0 pointer-events-none' : 'opacity-100',
         )}
         style={{ height: 'var(--header-height)' }}
       >

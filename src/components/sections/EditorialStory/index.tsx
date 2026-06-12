@@ -44,6 +44,8 @@ export function EditorialStory() {
           className="absolute inset-0"
           style={{ background: 'radial-gradient(ellipse 60% 50% at 12% 8%, rgba(176,138,87,0.18), transparent 60%)' }}
         />
+        {/* Mobile: uniform base darkening so text stays readable on any image area */}
+        <div className="absolute inset-0 sm:hidden" style={{ background: 'rgba(12,7,4,0.62)' }} aria-hidden="true" />
         <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: GRAIN }} />
       </div>
 

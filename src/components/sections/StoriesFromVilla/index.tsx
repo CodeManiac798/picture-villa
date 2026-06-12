@@ -83,7 +83,7 @@ function GalleryCell({ item, index }: { item: GalleryItem; index: number }) {
 
 export function StoriesFromVilla() {
   return (
-    <section className="relative bg-[--color-ivory] py-20 sm:py-24 lg:py-28">
+    <section className="relative bg-[--color-ivory] py-14 sm:py-24 lg:py-28">
       <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
 
         {/* Header */}
@@ -124,7 +124,7 @@ export function StoriesFromVilla() {
 
         {/* Instagram CTA */}
         <Reveal delay={0.1}>
-          <div className="mt-12 flex flex-col items-center gap-4 text-center sm:flex-row sm:justify-center sm:gap-6">
+          <div className="mt-8 flex flex-col items-center gap-4 text-center sm:flex-row sm:justify-center sm:gap-6">
             <p className="text-body text-[--color-mist]">
               More stories every week on Instagram.
             </p>

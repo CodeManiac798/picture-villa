@@ -7,16 +7,16 @@ import { NAV_CONFIG } from '@/lib/constants/navigation';
 import { SITE } from '@/lib/constants/site';
 import { buildBookingWhatsAppUrl } from '@/lib/utils/whatsapp';
 
-const NAV_CONTAINER = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.055, delayChildren: 0.12 } },
-};
-
 const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
+const NAV_CONTAINER = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.05, delayChildren: 0.1 } },
+};
+
 const NAV_ITEM = {
-  hidden: { opacity: 0, y: 10 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: EASE } },
+  hidden: { opacity: 0, y: 8 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: EASE } },
 };
 
 interface MobileMenuProps {
@@ -29,34 +29,20 @@ export function MobileMenu({ onClose }: MobileMenuProps) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
-      animate={{ opacity: 1, transition: { duration: 0.28, ease: [0.22, 1, 0.36, 1] } }}
-      exit={{ opacity: 0, transition: { duration: 0.2 } }}
-      className="fixed inset-0 z-[60] flex flex-col bg-[--color-ivory]"
+      animate={{ opacity: 1, transition: { duration: 0.25, ease: EASE } }}
+      exit={{ opacity: 0, transition: { duration: 0.18 } }}
+      className="fixed inset-0 z-[60] flex flex-col"
+      style={{ backgroundColor: '#F8F5F0' }}
       role="dialog"
       aria-label="Navigation menu"
       aria-modal="true"
     >
-      {/* Atmospheric warm glow — barely perceptible */}
-      <div
-        className="pointer-events-none absolute bottom-0 right-0 h-72 w-72"
-        style={{ background: 'radial-gradient(ellipse at 100% 100%, rgba(176,138,87,0.09), transparent 65%)' }}
-        aria-hidden="true"
-      />
-
-      {/* Header — estate name as home link, close on right */}
-      <div className="relative z-10 flex items-center justify-between px-6 pt-8 pb-6">
-        <Link
-          href="/"
-          onClick={onClose}
-          className="text-eyebrow text-[--color-mist] transition-colors duration-200 hover:text-[--color-charcoal]"
-          aria-label="The Picture Villa — Home"
-        >
-          The Picture Villa
-        </Link>
+      {/* Close button — top right only, no duplicate branding */}
+      <div className="flex items-center justify-end px-5 pt-5 pb-4">
         <button
           onClick={onClose}
           aria-label="Close menu"
-          className="-mr-2 p-2 text-[--color-charcoal] transition-colors duration-200 hover:text-[--color-gold]"
+          className="-mr-1 p-2 text-[--color-charcoal] transition-colors duration-200 hover:text-[--color-gold]"
         >
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3" aria-hidden="true">
             <path d="M18 6L6 18M6 6l12 12" />
@@ -64,12 +50,12 @@ export function MobileMenu({ onClose }: MobileMenuProps) {
         </button>
       </div>
 
-      {/* Nav links — vertically centred in the remaining space */}
+      {/* Nav links */}
       <motion.nav
         variants={NAV_CONTAINER}
         initial="hidden"
         animate="visible"
-        className="relative z-10 flex flex-1 flex-col justify-center border-t border-[--color-beige]/50 px-6"
+        className="flex flex-1 flex-col border-t border-[--color-beige]/70 px-6 pt-2"
         aria-label="Mobile primary navigation"
       >
         {NAV_CONFIG.primary.map((item) => (
@@ -77,15 +63,15 @@ export function MobileMenu({ onClose }: MobileMenuProps) {
             <Link
               href={item.href}
               onClick={onClose}
-              className="block border-b border-[--color-beige]/50 py-5 font-display text-[1.75rem] font-light text-[--color-ink] transition-colors duration-300 hover:text-[--color-gold]"
+              className="block border-b border-[--color-beige]/60 py-[0.9rem] text-[1.0625rem] font-normal tracking-[0.02em] text-[--color-ink] transition-colors duration-200 hover:text-[--color-gold]"
             >
               {item.label}
             </Link>
           </motion.div>
         ))}
 
-        {/* Instagram — secondary, recessed, a quiet exit below the nav */}
-        <motion.div variants={NAV_ITEM} className="mt-6">
+        {/* Instagram — recessed, below primary links */}
+        <motion.div variants={NAV_ITEM} className="mt-5">
           <a
             href={SITE.social.instagram}
             target="_blank"
@@ -102,7 +88,7 @@ export function MobileMenu({ onClose }: MobileMenuProps) {
       </motion.nav>
 
       {/* CTAs */}
-      <div className="relative z-10 flex flex-col gap-3 border-t border-[--color-beige]/50 px-6 pb-10 pt-6">
+      <div className="flex flex-col gap-3 border-t border-[--color-beige]/70 px-6 pb-10 pt-5">
         <Link
           href={NAV_CONFIG.cta.href}
           onClick={onClose}
